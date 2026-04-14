@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiNet11Preview3Sample.Pages.LongPressPage"
+             Title="Long Press Gesture">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="LongPressGestureRecognizer"
+                       FontSize="22" FontAttributes="Bold" />
+                <Label Text="Built-in press-and-hold interactions in .NET MAUI 11"
+                       FontSize="14" TextColor="{StaticResource Gray500}" />
+            </VerticalStackLayout>
+
+            <!-- Demo Card 1: Basic Long Press -->
+            <Border x:Name="BasicCard"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="{StaticResource Primary}"
+                    Padding="24"
+                    HeightRequest="140">
+                <Border.GestureRecognizers>
+                    <LongPressGestureRecognizer
+                        MinimumPressDuration="500"
+                        LongPressed="OnBasicLongPressed"
+                        LongPressing="OnBasicLongPressing" />
+                </Border.GestureRecognizers>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="6">
+                    <Label Text="Press &amp; Hold Me"
+                           FontSize="20" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label Text="MinimumPressDuration = 500ms"
+                           FontSize="13" TextColor="#CCFFFFFF"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="BasicStatusLabel"
+                           Text="Waiting for long press..."
+                           FontSize="12" TextColor="#99FFFFFF"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Demo Card 2: Long Duration -->
+            <Border x:Name="SlowCard"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#FF9800"
+                    Padding="24"
+                    HeightRequest="140">
+                <Border.GestureRecognizers>
+                    <LongPressGestureRecognizer
+                        MinimumPressDuration="1500"
+                        LongPressed="OnSlowLongPressed"
+                        LongPressing="OnSlowLongPressing" />
+                </Border.GestureRecognizers>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="6">
+                    <Label Text="Long Hold (1.5s)"
+                           FontSize="20" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label Text="MinimumPressDuration = 1500ms"
+                           FontSize="13" TextColor="#CCFFFFFF"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="SlowStatusLabel"
+                           Text="Hold longer to trigger..."
+                           FontSize="12" TextColor="#99FFFFFF"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Demo Card 3: Position Tracking -->
+            <Border x:Name="PositionCard"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#9C27B0"
+                    Padding="24"
+                    HeightRequest="180">
+                <Border.GestureRecognizers>
+                    <LongPressGestureRecognizer
+                        MinimumPressDuration="300"
+                        LongPressing="OnPositionLongPressing"
+                        LongPressed="OnPositionLongPressed" />
+                </Border.GestureRecognizers>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="6">
+                    <Label Text="Position Tracker"
+                           FontSize="20" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label Text="Press and see coordinates via GetPosition()"
+                           FontSize="13" TextColor="#CCFFFFFF"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="PositionLabel"
+                           Text="Position: --"
+                           FontSize="14" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="StateLabel"
+                           Text="State: --"
+                           FontSize="12" TextColor="#99FFFFFF"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Info Section -->
+            <Border StrokeShape="RoundRectangle 12"
+                    Stroke="#E0E0E0"
+                    StrokeThickness="1"
+                    Padding="16">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="What's New" FontSize="16" FontAttributes="Bold" />
+                    <Label FontSize="13" TextColor="{StaticResource Gray600}">
+                        <Label.Text>LongPressGestureRecognizer is now built into .NET MAUI. No more toolkit workarounds!
+
+Features:
+- MinimumPressDuration (in milliseconds)
+- LongPressing event with state tracking
+- LongPressed event when completed
+- GetPosition() for touch coordinates
+- Command binding support</Label.Text>
+                    </Label>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

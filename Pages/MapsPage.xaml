@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="MauiNet11Preview3Sample.Pages.MapsPage"
+             Title="Maps in .NET MAUI 11">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <VerticalStackLayout Padding="16,8" Spacing="4" BackgroundColor="{StaticResource Primary}">
+            <Label Text="New Maps Features"
+                   FontSize="22" FontAttributes="Bold" TextColor="White" />
+            <Label Text="Clustering, custom pin icons, long press, element clicks"
+                   FontSize="13" TextColor="#CCFFFFFF" />
+        </VerticalStackLayout>
+
+        <!-- Map -->
+        <maps:Map x:Name="DemoMap"
+                  Grid.Row="1"
+                  IsClusteringEnabled="True"
+                  MapClicked="OnMapClicked"
+                  MapLongClicked="OnMapLongClicked" />
+
+        <!-- Controls + Status -->
+        <Border Grid.Row="2" 
+                StrokeThickness="0" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark=#1C1C1E}"
+                Padding="16,12">
+            <VerticalStackLayout Spacing="8">
+
+                <HorizontalStackLayout Spacing="12">
+                    <Button x:Name="ToggleOverlaysButton"
+                            Text="Toggle Overlays"
+                            Clicked="OnToggleOverlays"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            FontSize="13"
+                            Padding="14,8"
+                            CornerRadius="8" />
+                    <Button Text="Reset Pins"
+                            Clicked="OnResetPins"
+                            BackgroundColor="{StaticResource Secondary}"
+                            TextColor="White"
+                            FontSize="13"
+                            Padding="14,8"
+                            CornerRadius="8" />
+                    <Button x:Name="ClusterToggle"
+                            Text="Clustering: On"
+                            Clicked="OnToggleClustering"
+                            BackgroundColor="#34C759"
+                            TextColor="White"
+                            FontSize="13"
+                            Padding="14,8"
+                            CornerRadius="8" />
+                </HorizontalStackLayout>
+
+                <Border StrokeThickness="1" Stroke="#E0E0E0" Padding="10,6" StrokeShape="RoundRectangle 6">
+                    <Label x:Name="StatusLabel"
+                           Text="Long press the map to add a pin. Tap overlays to interact."
+                           FontSize="12"
+                           TextColor="{StaticResource Gray500}" />
+                </Border>
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
+</ContentPage>

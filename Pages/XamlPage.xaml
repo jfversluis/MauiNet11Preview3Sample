@@ -1,0 +1,136 @@
+<ContentPage x:Class="MauiNet11Preview3Sample.Pages.XamlPage"
+             Title="XAML in .NET 11">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4" Padding="0,8,0,0">
+                <Label Text="XAML Improvements"
+                       FontSize="26" FontAttributes="Bold" />
+                <Label Text="Cleaner, faster, smarter XAML in .NET 11"
+                       FontSize="14" TextColor="{StaticResource Gray500}" />
+            </VerticalStackLayout>
+
+            <!-- Implicit Namespaces Card -->
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#EDE7F6"
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Implicit XAML Namespaces"
+                           FontSize="18" FontAttributes="Bold"
+                           TextColor="#512BD4" />
+                    <Label Text="This very page uses NO xmlns declarations! In .NET 11, the standard MAUI and x: namespaces are implicit. Only custom namespaces need explicit declaration."
+                           FontSize="14" LineHeight="1.4"
+                           TextColor="#333333" />
+
+                    <Border StrokeShape="RoundRectangle 8"
+                            Stroke="#D1C4E9"
+                            StrokeThickness="1"
+                            Padding="12"
+                            BackgroundColor="#F5F0FF">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Before (.NET 10)" FontSize="12" FontAttributes="Bold" TextColor="#B71C1C" />
+                            <Label FontSize="11" FontFamily="OpenSansRegular" TextColor="#555">
+                                <Label.Text>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage xmlns="http://schemas...maui"
+             xmlns:x="http://schemas...xaml"
+             x:Class="MyApp.MainPage"&gt;</Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border StrokeShape="RoundRectangle 8"
+                            Stroke="#A5D6A7"
+                            StrokeThickness="1"
+                            Padding="12"
+                            BackgroundColor="#F1F8E9">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="After (.NET 11)" FontSize="12" FontAttributes="Bold" TextColor="#1B5E20" />
+                            <Label FontSize="11" FontFamily="OpenSansRegular" TextColor="#555">
+                                <Label.Text>&lt;ContentPage x:Class="MyApp.MainPage"&gt;</Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Source Gen Card -->
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#E3F2FD"
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="XAML Source Generation"
+                           FontSize="18" FontAttributes="Bold"
+                           TextColor="#1565C0" />
+                    <Label Text="Source generation is now the default for all XAML pages. Resources and styles are registered as factories and inflated on demand -- no more materializing every style at startup."
+                           FontSize="14" LineHeight="1.4"
+                           TextColor="#333333" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Border StrokeShape="RoundRectangle 12"
+                                StrokeThickness="0"
+                                BackgroundColor="White"
+                                Padding="16">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="Startup" FontSize="11" TextColor="#888" HorizontalTextAlignment="Center" />
+                                <Label Text="Faster" FontSize="22" FontAttributes="Bold" TextColor="#1B5E20" HorizontalTextAlignment="Center" />
+                                <Label Text="Lazy resource loading" FontSize="10" TextColor="#666" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1"
+                                StrokeShape="RoundRectangle 12"
+                                StrokeThickness="0"
+                                BackgroundColor="White"
+                                Padding="16">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="Compiled" FontSize="11" TextColor="#888" HorizontalTextAlignment="Center" />
+                                <Label Text="By Default" FontSize="22" FontAttributes="Bold" TextColor="#1565C0" HorizontalTextAlignment="Center" />
+                                <Label Text="No opt-in needed" FontSize="10" TextColor="#666" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Style APIs Card -->
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#FFF3E0"
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="New Style APIs"
+                           FontSize="18" FontAttributes="Bold"
+                           TextColor="#E65100" />
+                    <Label Text="InvalidateStyle() and VisualStateManager.InvalidateVisualStates() let you reapply mutated styles and visual states without recreating the element tree."
+                           FontSize="14" LineHeight="1.4"
+                           TextColor="#333333" />
+
+                    <Border StrokeShape="RoundRectangle 8"
+                            Stroke="#FFCC80"
+                            StrokeThickness="1"
+                            Padding="12"
+                            BackgroundColor="#FFF8E1">
+                        <Label FontSize="11" FontFamily="OpenSansRegular" TextColor="#555">
+                            <Label.Text>// Mutate a style at runtime
+style.Setters.Add(new Setter { ... });
+
+// Reapply without recreating the tree
+myButton.InvalidateStyle();
+
+// Reapply visual states
+VisualStateManager.InvalidateVisualStates(myElement);</Label.Text>
+                        </Label>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Bottom spacer -->
+            <BoxView HeightRequest="20" Color="Transparent" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

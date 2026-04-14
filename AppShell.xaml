@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:MauiNet11Preview3Sample.Pages"
+       x:Class="MauiNet11Preview3Sample.AppShell"
+       Shell.TabBarBackgroundColor="White"
+       Shell.TabBarTitleColor="{StaticResource Primary}"
+       Shell.TabBarUnselectedColor="#999999">
+
+    <TabBar>
+        <ShellContent Title="Maps"
+                      Icon="tab_maps.png"
+                      ContentTemplate="{DataTemplate pages:MapsPage}" />
+
+        <ShellContent Title="Long Press"
+                      Icon="tab_longpress.png"
+                      ContentTemplate="{DataTemplate pages:LongPressPage}" />
+
+        <ShellContent Title="XAML"
+                      Icon="tab_code.png"
+                      ContentTemplate="{DataTemplate pages:XamlPage}" />
+    </TabBar>
+
+</Shell>
