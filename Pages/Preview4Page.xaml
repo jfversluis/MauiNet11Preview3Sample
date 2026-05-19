@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MauiNet11Preview3Sample.Pages"
+             x:Class="MauiNet11Preview3Sample.Pages.Preview4Page"
+             x:DataType="pages:Preview4Page"
+             Title="Preview 4 additions">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="NotificationsToolbarItem"
+                     Text="Alerts"
+                     Order="Primary"
+                     Priority="0"
+                     IconImageSource="tab_bell.png"
+                     BadgeText="3"
+                     BadgeColor="#FF3B30"
+                     BadgeTextColor="White"
+                     Clicked="OnNotificationsToolbarItemClicked" />
+    </ContentPage.ToolbarItems>
+
+    <x:Code><![CDATA[
+        void OnInlineCodeClicked(object sender, System.EventArgs e)
+        {
+            InlineCodeStatus.Text = $"Handled by x:Code at {System.DateTime.Now:T}";
+        }
+    ]]></x:Code>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <VerticalStackLayout Spacing="4" Padding="0,8,0,0">
+                <Border BackgroundColor="#D600AA"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8"
+                        Padding="10,4"
+                        HorizontalOptions="Start">
+                    <Label Text="PREVIEW 4"
+                           FontSize="11"
+                           FontAttributes="Bold"
+                           TextColor="White" />
+                </Border>
+                <Label Text=".NET MAUI 11 Preview 4"
+                       FontSize="26"
+                       FontAttributes="Bold" />
+                <Label Text="CoreCLR by default, Material 3 controls, badges, x:Code, compiled DataTemplates, dotnet watch, and themed icons."
+                       FontSize="14"
+                       TextColor="{StaticResource Gray500}" />
+                <Label Text="The other tabs are Preview 3 samples kept in this app for comparison."
+                       FontSize="13"
+                       TextColor="{StaticResource Gray500}" />
+            </VerticalStackLayout>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#FCE4EC"
+                    Padding="18">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Shell and ToolbarItem badges"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#AD1457" />
+                    <Label Text="Preview 4 adds BadgeText, BadgeColor, and BadgeTextColor to Shell tabs and primary ToolbarItems. The Preview 4 tab starts with a badge, and the toolbar item above has its own badge."
+                           FontSize="14"
+                           TextColor="#333333" />
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button Text="Increment"
+                                Clicked="OnIncrementBadgesClicked"
+                                FontSize="12"
+                                Padding="10,8" />
+                        <Button Grid.Column="1"
+                                Text="Dot"
+                                Clicked="OnShowDotBadgesClicked"
+                                FontSize="12"
+                                Padding="10,8" />
+                        <Button Grid.Column="2"
+                                Text="Clear"
+                                Clicked="OnClearBadgesClicked"
+                                FontSize="12"
+                                Padding="10,8" />
+                    </Grid>
+
+                    <Border StrokeShape="RoundRectangle 8"
+                            Stroke="#F8BBD0"
+                            StrokeThickness="1"
+                            BackgroundColor="#FFF7FA"
+                            Padding="12">
+                        <Label x:Name="BadgeStatusLabel"
+                               Text="Shell tab badge = 4, toolbar badge = 3"
+                               FontSize="13"
+                               TextColor="#880E4F" />
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#E8F5E9"
+                    Padding="18">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="x:Code inline C#"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#1B5E20" />
+                    <Label Text="This button is wired to a C# event handler declared inside this XAML file with the new x:Code directive."
+                           FontSize="14"
+                           TextColor="#333333" />
+                    <Button Text="Run inline handler"
+                            Clicked="OnInlineCodeClicked"
+                            HorizontalOptions="Start" />
+                    <Label x:Name="InlineCodeStatus"
+                           Text="Tap the button to run XAML-local C#."
+                           FontSize="13"
+                           TextColor="#2E7D32" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#E3F2FD"
+                    Padding="18">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Android Material 3 controls"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#1565C0" />
+                    <Label Text="Preview 4 expands Material 3 behavior to ImageButton, DatePicker, Entry, and Slider handlers on Android."
+                           FontSize="14"
+                           TextColor="#333333" />
+
+                    <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+                        <ImageButton Source="dotnet_bot.png"
+                                     BackgroundColor="#D1C4E9"
+                                     CornerRadius="22"
+                                     Padding="8"
+                                     HeightRequest="44"
+                                     WidthRequest="44" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="10">
+                            <Entry Placeholder="Material 3 Entry" />
+                            <DatePicker />
+                            <Slider Minimum="0"
+                                    Maximum="100"
+                                    Value="42" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#FFF3E0"
+                    Padding="18">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Compiled bindings in DataTemplates"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#E65100" />
+                    <Label Text="Each card below is rendered by a DataTemplate with x:DataType, so bindings are checked and generated at build time."
+                           FontSize="14"
+                           TextColor="#333333" />
+
+                    <CollectionView ItemsSource="{Binding Features}"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="pages:Preview4Feature">
+                                <Border StrokeShape="RoundRectangle 12"
+                                        Stroke="#FFE0B2"
+                                        StrokeThickness="1"
+                                        BackgroundColor="White"
+                                        Padding="14"
+                                        Margin="0,0,0,10">
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                                        <Border BackgroundColor="{Binding BadgeColor}"
+                                                StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 8"
+                                                Padding="8,4"
+                                                VerticalOptions="Start">
+                                            <Label Text="{Binding Badge}"
+                                                   FontSize="11"
+                                                   FontAttributes="Bold"
+                                                   TextColor="White" />
+                                        </Border>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                            <Label Text="{Binding Title}"
+                                                   FontSize="15"
+                                                   FontAttributes="Bold"
+                                                   TextColor="#333333" />
+                                            <Label Text="{Binding Description}"
+                                                   FontSize="13"
+                                                   TextColor="{StaticResource Gray600}" />
+                                            <Label Text="{Binding SampleHint}"
+                                                   FontSize="12"
+                                                   TextColor="#E65100" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    BackgroundColor="#F3E5F5"
+                    Padding="18">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Project-level Preview 4 updates"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#6A1B9A" />
+                    <Label Text="CoreCLR is the default runtime for .NET MAUI targets in Preview 4. The project also declares a MonochromeFile icon layer for Android themed icons and sets MtouchLink=None for iOS dotnet watch simulator runs."
+                           FontSize="14"
+                           TextColor="#333333" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

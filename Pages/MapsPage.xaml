@@ -3,13 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              x:Class="MauiNet11Preview3Sample.Pages.MapsPage"
-             Title="Maps in .NET MAUI 11">
+              Title="Preview 3 Maps">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
         <!-- Header -->
         <VerticalStackLayout Padding="16,8" Spacing="4" BackgroundColor="{StaticResource Primary}">
-            <Label Text="New Maps Features"
+            <Border BackgroundColor="#33FFFFFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 8"
+                    Padding="8,3"
+                    HorizontalOptions="Start">
+                <Label Text="PREVIEW 3 SAMPLE"
+                       FontSize="10"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+            </Border>
+            <Label Text="Preview 3 Maps Features"
                    FontSize="22" FontAttributes="Bold" TextColor="White" />
             <Label Text="Clustering, custom pin icons, long press, element clicks"
                    FontSize="13" TextColor="#CCFFFFFF" />

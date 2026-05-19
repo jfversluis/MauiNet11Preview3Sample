@@ -1,12 +1,22 @@
 <ContentPage x:Class="MauiNet11Preview3Sample.Pages.XamlPage"
-             Title="XAML in .NET 11">
+             Title="Preview 3 XAML">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <!-- Header -->
             <VerticalStackLayout Spacing="4" Padding="0,8,0,0">
-                <Label Text="XAML Improvements"
+                <Border BackgroundColor="#512BD4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8"
+                        Padding="8,3"
+                        HorizontalOptions="Start">
+                    <Label Text="PREVIEW 3 SAMPLE"
+                           FontSize="10"
+                           FontAttributes="Bold"
+                           TextColor="White" />
+                </Border>
+                <Label Text="Preview 3 XAML Improvements"
                        FontSize="26" FontAttributes="Bold" />
                 <Label Text="Cleaner, faster, smarter XAML in .NET 11"
                        FontSize="14" TextColor="{StaticResource Gray500}" />

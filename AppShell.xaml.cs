@@ -6,4 +6,10 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+	public void SetPreview4Badge(string? badgeText)
+	{
+		Preview4Tab.BadgeText = badgeText;
+		Preview4ShellContent.BadgeText = badgeText;
+	}
 }

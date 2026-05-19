@@ -2,14 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiNet11Preview3Sample.Pages.LongPressPage"
-             Title="Long Press Gesture">
+             Title="Preview 3 Long Press">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
 
             <!-- Header -->
             <VerticalStackLayout Spacing="4">
-                <Label Text="LongPressGestureRecognizer"
+                <Border BackgroundColor="#512BD4"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 8"
+                        Padding="8,3"
+                        HorizontalOptions="Start">
+                    <Label Text="PREVIEW 3 SAMPLE"
+                           FontSize="10"
+                           FontAttributes="Bold"
+                           TextColor="White" />
+                </Border>
+                <Label Text="Preview 3 LongPressGestureRecognizer"
                        FontSize="22" FontAttributes="Bold" />
                 <Label Text="Built-in press-and-hold interactions in .NET MAUI 11"
                        FontSize="14" TextColor="{StaticResource Gray500}" />
@@ -108,7 +118,7 @@
                 <VerticalStackLayout Spacing="8">
                     <Label Text="What's New" FontSize="16" FontAttributes="Bold" />
                     <Label FontSize="13" TextColor="{StaticResource Gray600}">
-                        <Label.Text>LongPressGestureRecognizer is now built into .NET MAUI. No more toolkit workarounds!
+                        <Label.Text>Preview 3 added LongPressGestureRecognizer to .NET MAUI. No more toolkit workarounds!
 
 Features:
 - MinimumPressDuration (in milliseconds)

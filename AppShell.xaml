@@ -8,15 +8,25 @@
        Shell.TabBarUnselectedColor="#999999">
 
     <TabBar>
-        <ShellContent Title="Maps"
+        <Tab x:Name="Preview4Tab"
+             Title="P4 New"
+             Icon="tab_bell.png"
+             BadgeText="4"
+             BadgeColor="#D600AA"
+             BadgeTextColor="White">
+            <ShellContent x:Name="Preview4ShellContent"
+                          ContentTemplate="{DataTemplate pages:Preview4Page}" />
+        </Tab>
+
+        <ShellContent Title="P3 Maps"
                       Icon="tab_maps.png"
                       ContentTemplate="{DataTemplate pages:MapsPage}" />
 
-        <ShellContent Title="Long Press"
+        <ShellContent Title="P3 Press"
                       Icon="tab_longpress.png"
                       ContentTemplate="{DataTemplate pages:LongPressPage}" />
 
-        <ShellContent Title="XAML"
+        <ShellContent Title="P3 XAML"
                       Icon="tab_code.png"
                       ContentTemplate="{DataTemplate pages:XamlPage}" />
     </TabBar>
